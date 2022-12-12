@@ -1,0 +1,630 @@
+    body {
+        background-color: #f2f2f2;
+        color: #000;
+        font-size: 12px;
+        font-family: Arial,
+            Microsoft YaHei,
+            sans-serif;
+    }
+
+    /* header 开始 */
+    .header {
+        /* 1、移动端宽度一般使用百分比布局 */
+        /* 2、移动端必须设置最小宽度和最大宽度 使用px */
+        width: 100%;
+        min-width: 320px;
+        max-width: 540px;
+        height: 45px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        background-color: #f6f6f6;
+        /* padding: 使用内边距撑开父级与子级的位置,使更有观赏性
+            上,左为了子盒子距离父盒子远 有padding为了挤出固比固模型中的固定大小元素
+        */
+        padding: 7px 50px 0 8px;
+        /* 盒子最终占有宽度100% 高45px padding border */
+        /* 使用内减盒模型:width height 占有 */
+        box-sizing: border-box;
+        /* 固定定位: 脱标,参考浏览器 */
+        position: fixed;
+        /* 固定定位水平居中 */
+        left: 50%;
+        /* 拉回自身大小一半 */
+        transform: translateX(-50%);
+        /* 层级最大 */
+        z-index: 999;
+    }
+
+    /* 搜索框 */
+    .header .search {
+        /* 比:标准流 百分比:父盒子内容宽比值 */
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+        /* 边框 */
+        border: 1px solid #999;
+        /* 圆角 */
+        border-radius: 3px;
+        /* 盒子阴影 */
+        box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, .2);
+        /* 背景色 */
+        background-color: #fff;
+        box-sizing: border-box;
+        /* 挤出背景图的空间 */
+        padding-left: 24px;
+        /* 文字属性可继承 */
+    }
+
+    /* 利用伪元素添加搜索图标 */
+    .header .search::before {
+        /* content必须 */
+        content: "";
+        /* 设置大小，调整位置：绝对定位：参考距离最近且有定位的祖先元素，否则相对视口定位，这里参考祖先 header定位，参考顶点：边框以内的四个顶点，无视padding */
+        /* 渲染效果：13*14,美工将图片放大两倍26*28,前端缩小一半使用：13*14 */
+        display: inline-block;
+        width: 20px;
+        height: 22px;
+        /* 背景图设置 ../ 上上级目录里的图片存放的文件夹再找到图片 */
+        background: url("../img/search.png") center/100% 100% no-repeat;
+        /* 引入背景图缩小，这里使用的其它搜索图标图片代替 */
+        /* background-size: 减半 减半; */
+        position: absolute;
+        left: 14px;
+        top: 9px;
+    }
+
+    /* 固比固模型：固 使用绝对定位 */
+    .header .login {
+        color: #0093dd;
+        line-height: 15px;
+        text-align: center;
+        /* a标签是行内元素没有宽高，设置无效，需转块或者定位自动转块  */
+        position: absolute;
+        /* 绝对定位(脱标)，自动转块，宽高生效 */
+        /* 子绝父固 */
+        width: 50px;
+        height: 39px;
+        background-color: #fff;
+        top: 4px;
+        right: 0;
+    }
+
+    .header .login::before {
+        content: "";
+        /* 标准流,块级元素宽高生效 */
+        display: block;
+        width: 23px;
+        height: 24px;
+        /* 块级元素水平居中 */
+        margin: 0 auto;
+        /*
+        图片,设计图做大两倍,44*46,前端缩小一半使用23*24,使土图片更加清晰
+        使用其它图片代替 */
+        background: url("../img/am.png") center/100% 100% no-repeat #0093dd;
+        /* 背景图压缩... */
+        /* background-size: 减半 减半; */
+        border-radius: 50%;
+    }
+
+    /* header 结束 */
+
+    /* img图片转块，去掉小间隔 */
+    img {
+        display: block;
+        /* 图片和父盒子宽度相同  */
+        width: 100%;
+    }
+
+    /* banner 开始 */
+    .banner {
+        /* 大盒子：最小宽度和最大宽度设置 */
+        width: 100%;
+        min-width: 320px;
+        max-width: 540px;
+        margin: 0 auto;
+        /* 由于header是固定定位,脱标后会压盖标准流，需要挤出覆盖的空间 */
+        padding-top: 45px;
+        position: relative;
+    }
+
+    /* 小圆点 */
+    .banner .circles {
+        /* 小圆点盒子压盖图片 */
+        position: absolute;
+        right: 6px;
+        bottom: 6px;
+        width: 67px;
+        height: 5px;
+    }
+
+    .banner .circles ol li {
+        /* 浮动：同级元素并排显示且设置宽高 */
+        float: left;
+        width: 5px;
+        height: 5px;
+        margin-right: 5px;
+        background-color: rgba(255, 255, 225, .5);
+        border-radius: 5px;
+    }
+
+    .banner .circles ol li.actives {
+        width: 17px;
+        background-color: #fff;
+    }
+
+    .banner .circles ol li:last-child {
+        /* 层叠最后一个元素的样式 */
+        margin-right: 0;
+    }
+
+    /* 主导航 */
+    .main-nav {
+        /* 一般盒子通栏 */
+        width: 100%;
+        /* 省略高度子级撑开 */
+        /* 利用padding挤出周围的间隔 */
+        padding: 4px;
+        box-sizing: border-box;
+        min-width: 320px;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    .main-nav .row {
+        width: 100%;
+        height: 90px;
+        background-color: #ff697a;
+        border-radius: 8px;
+        margin-bottom: 4px;
+    }
+
+    .main-nav .row ul li {
+        float: left;
+        /* 元素均分效果 */
+        width: 33.33%;
+        height: 45px;
+        /* 元素有左边框、上边框 */
+        border-left: 1px solid #fff;
+        border-top: 1px solid #fff;
+        box-sizing: border-box;
+    }
+
+    .main-nav .row ul li:first-child {
+        height: 90px;
+        border: none;
+    }
+
+    .main-nav .row ul li:nth-child(2),
+    .main-nav .row ul li:nth-child(3) {
+        /* 无边框去除 */
+        border-top: none;
+    }
+
+    .main-nav .row ul li a {
+        color: #fff;
+        /* a 行内元素 */
+        display: block;
+        /* 标准流：父盒子内容高的比值 */
+        height: 100%;
+        text-align: center;
+        line-height: 45px;
+        /* 文字阴影 */
+        text-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+        /* 子绝父相 */
+        position: relative;
+    }
+
+    /* 序选择器：所有同级或者儿子 */
+    .main-nav .row ul li:first-child a::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: url("../img/hotel.png") center/contain no-repeat;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* 层叠样式,因素材自取，对于背景精灵图的坐标练习已经巩固，不必再练习 */
+    .main-nav .row:nth-child(2) {
+        background-color: #3494fe;
+    }
+
+    .main-nav .row:nth-child(2) ul li:first-child a::after {
+        background-image: url("../img/plane.png");
+    }
+
+    .main-nav .row:nth-child(3) {
+        background-color: #3baf24;
+    }
+
+    .main-nav .row:nth-child(3) ul li:first-child a::after {
+        background-image: url("../img/Travel.png");
+    }
+
+    .main-nav .row:nth-child(4) {
+        background-color: #ff9a22;
+    }
+
+    .main-nav .row:nth-child(4) ul li:first-child {
+        height: 45px;
+        border: none;
+    }
+
+    .main-nav .row:nth-child(4) ul li:first-child a::after {
+        display: none;
+    }
+
+    .main-nav .row:nth-child(4) ul li:nth-child(4) {
+        border-left: none;
+    }
+
+    /* banner 结束 */
+
+    /* 侧导航 开始 */
+    .sub-nav {
+        width: 100%;
+        /* 父子之间使用padding调整间距 */
+        padding: 0 4px;
+        box-sizing: border-box;
+        /* 固定高度,浮动的子级元素不需要清楚浮动 */
+        height: 182px;
+        min-width: 320px;
+        max-width: 540px;
+        margin: 0 auto;
+    }
+
+    .sub-nav ul {
+        /* 大盒子不设置背景色,利用祖先的背景色,设置上四个圆角 */
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        /* 将li元素多出的元素溢出隐藏 */
+        overflow: hidden;
+    }
+
+    .sub-nav ul li {
+        float: left;
+        /* 均分 
+            水平：li+border-right,同一行最后一个元素去除边框 
+            垂直：li60px 上下间隔使用mg
+            */
+        width: 25%;
+        height: 60px;
+        border-right: 1px solid #f2f2f2;
+        margin-bottom: 1px;
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+    .sub-nav ul li:nth-child(4n) {
+        /* : nth-child(4n)：4 8 12 16... */
+        border-right: none;
+        overflow: hidden;
+    }
+
+    .sub-nav ul li a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 14px;
+        /* 单行文本垂直方向调整：line-height */
+        line-height: 90px;
+        text-align: center;
+        position: relative;
+    }
+
+    .sub-nav ul li a:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -10px;
+        width: 20px;
+        height: 19px;
+        /* 随机找图练习一下背景雪碧图定位和缩放图片提高清晰度 */
+        background: url("../img/page.png") no-repeat -23px 0;
+        background-size: 45px 90px;
+    }
+
+    .sub-nav ul li:nth-child(5) a:before {
+        background-position: 0 -45px;
+        background-size: 45px 83px;
+    }
+
+    .sub-nav ul li:nth-child(8) a:before {
+        background-position: 0 -45px;
+        background-size: 45px 83px;
+    }
+
+    /* 侧导航 结束 */
+
+    /* 特卖会 开始 */
+    .sale {
+        width: 100%;
+        height: 263px;
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        background-color: #fff;
+        min-width: 320px;
+        max-width: 540px;
+        margin: 8px auto;
+        padding: 15px 8px 0;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+
+    .sale .hd {
+        width: 100%;
+        height: 14px;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .sale .hd h3 {
+        /* 渲染背景图:同时有文字不能让用户看到,利用padding-top挤出盒子高度渲染背景图 */
+        /* 移动端宽度一般使用百分比布局,但是用户对于固定宽度还是使用px */
+        width: 56px;
+        height: 0px;
+        padding-top: 14px;
+        /* 溢出隐藏掉文字 */
+        overflow: hidden;
+        background: url("../img/taobaoIco.png") no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .sale .hd .red-envelopes {
+        color: #fff;
+        /* a行内元素,使用绝对定位调整位置 */
+        position: absolute;
+        right: 0;
+        top: -3px;
+        width: 102px;
+        height: 20px;
+        line-height: 20px;
+        /* 渐变 */
+        background-image: -webkit-linear-gradient(left, #fe6375, #fe7ccd);
+        /* 胶囊形: px */
+        border-radius: 10px;
+        padding-left: 11px;
+        box-sizing: border-box;
+    }
+
+    /* 使用伪元素画一个大于符号的直角 */
+    .sale .hd .red-envelopes::after {
+        content: "";
+        /* 利用边框旋转实现大于号 */
+        position: absolute;
+        top: 5px;
+        width: 7px;
+        height: 7px;
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+        transform: rotate(45deg);
+    }
+
+    /* 商品内容 */
+    .sale .sale-content {
+        width: 100%;
+        height: 205px;
+    }
+
+    .sale .sale-content .left {
+        /* 均分 */
+        float: left;
+        width: 50%;
+        height: 100%;
+        border-right: 2px solid #fff;
+        background-color: #f9f9f9;
+        box-sizing: border-box;
+    }
+
+    .sale .sale-content .left .pic {
+        /* 图片设置高度 */
+        width: 100%;
+        height: 117px;
+        overflow: hidden;
+        position: relative;
+    }
+
+
+    .sale .sale-content .left .pic span {
+        /* 利用长方形+三角形实现效果 */
+        position: absolute;
+        /* 长方形 */
+        width: 38px;
+        height: 20px;
+        left: 0;
+        top: 0;
+        background-color: #fd3a51;
+        color: #fff;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .sale .sale-content .left .pic span::after {
+        content: "";
+        position: absolute;
+        /* 设置10像素的上边框三角 */
+        width: 0;
+        height: 0;
+        border: 10px solid #fd3a51;
+        /* 上边框:上三角形 */
+        border-color: #fd3a51 transparent transparent;
+        /* 上边框宽度变长到20px */
+        border-top-width: 20px;
+        right: -10px;
+    }
+
+    .sale .sale-content .left .shop-info {
+        padding: 8px 6px 0 8px;
+        font-size: 12px;
+        line-height: 22px;
+
+    }
+
+    .sale .sale-content .left .shop-info .info {
+        /* 多行文字省略号 */
+        width: 100%;
+        height: 44px;
+        /* 文字转为box */
+        display: -webkit-box;
+        /* 垂直 */
+        -webkit-box-orient: vertical;
+        /* 2行 */
+        -webkit-line-clamp: 2;
+        /* 
+            注： 
+            1、-webkit-line-clamp 用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性： 
+            2、display: -webkit-box;必须结合的属性，将对象作为弹性伸缩盒子模型显示 。 
+            3、-webkit-box-orient 必须结合的属性，设置或检索伸缩盒对象的子元素的排列方式 。
+        */
+        /* 文字溢出显示省略号 */
+        text-overflow: ellipse;
+        /* 溢出隐藏 */
+        overflow: hidden;
+    }
+
+    .sale .sale-content .left .shop-info .price {
+        color: #ff495e;
+        height: 23px;
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .sale .sale-content .left .shop-info .price i {
+        /* 文字样式: 正常 */
+        font-style: normal;
+        font-size: 12px;
+    }
+
+    .sale .sale-content .left .shop-info .price span {
+        color: #fff;
+        font-size: 12px;
+        /* 行内元素有几个特点: 不可以设置宽高,但是 margin 和 padding 都可以设置 */
+        padding: 2px 6px;
+        background-color: #fd3a51;
+        /* 胶囊使用像素设置 */
+        border-radius: 10px;
+        margin-left: 4px;
+    }
+
+    .sale .sale-content .right {
+        float: left;
+        width: 50%;
+        border-left: 2px solid #fff;
+        box-sizing: border-box;
+
+    }
+
+    .sale .sale-content .right ul li {
+        /* 这里设置公共样式 */
+        /* 同级元素要浮动都浮动 */
+        float: left;
+        background-color: #f9f9f9;
+        box-sizing: border-box;
+        padding-top: 9px;
+        position: relative;
+    }
+
+    /* 样式区分 */
+    .sale .sale-content .right ul li:first-child {
+        width: 100%;
+        height: 88px;
+        /* 上下句丽可以使用间隔或者边框 */
+        margin-bottom: 4px;
+        padding-left: 7px;
+    }
+
+    .sale .sale-content .right ul li:first-child p:first-child {
+        color: #fd3a51;
+        font-weight: bold;
+    }
+
+    .sale .sale-content .right ul li:first-child::after {
+        content: "";
+        position: absolute;
+        right: 4px;
+        bottom: 0;
+        background: url("../img/xs2-nav.png") center/cover no-repeat;
+        width: 53.5px;
+        height: 71px;
+    }
+
+    /* 设置第二个li */
+    .sale .sale-content .right ul li:nth-child(2) {
+        width: 50%;
+        height: 112px;
+    }
+
+    /* 设置第三个li */
+    .sale .sale-content .right ul li:nth-child(3) {
+        width: 50%;
+        height: 112px;
+        border-left: 2px solid #fff;
+        box-sizing: border-box;
+    }
+
+    /* 特卖会 结束 */
+
+    /* 视频到此实例教程结束,剩下部分独立处理,从这篇案例课程学到了很多细节上的东西,收获满满,加油!!! */
+    .sale .sale-content .right ul li:nth-child(2),
+    .sale .sale-content .right ul li:nth-child(3) {
+        font-size: 12px;
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    /* 设置第二个li */
+    .sale .sale-content .right ul li:nth-child(2) {
+        box-sizing: border-box;
+    }
+
+    .sale .sale-content .right ul li:nth-child(2) p:first-child,
+    .sale .sale-content .right ul li:nth-child(2) p span {
+        color: green;
+    }
+
+    .sale .sale-content .right ul li:nth-child(2)::before,
+    .sale .sale-content .right ul li:nth-child(3)::before {
+        content: "";
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+        background: url("../img/x-pro1.jpg") center/cover no-repeat;
+    }
+
+    .sale .sale-content .right ul li:nth-child(3) p:first-child,
+    .sale .sale-content .right ul li:nth-child(3) p span {
+        color: blue;
+    }
+
+    /* 页脚 */
+    .footer {
+        /* 文字属性 */
+        color: rgba(255, 255, 255, .6);
+        /* 文字阴影 */
+        text-shadow: 1px 1px 3px #eec0c650;
+        font-size: 20px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        /* 盒模型 */
+        width: 100%;
+        min-width: 320px;
+        max-width: 540px;
+        margin: 0 auto;
+        background-image: -webkit-linear-gradient(top left, #7ee8fa, #eec0c6);
+    }
+
+    @media screen and (min-width:400px) {
+        .footer {
+            border-radius: 10px;
+        }
+    }
