@@ -1,0 +1,7 @@
+    .RWD-Container header nav ul li.Hide {
+        display: none;
+    }
+
+    .RWD-Container main ul li {
+        width: 270px;
+    }

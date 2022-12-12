@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 工作中不使用 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 公共类 */
+        .inner {
+            width: 970px;
+            margin: 0 auto;
+        }
+
+        .fl { float: left; }
+        .fr { float: right; }
+
+        .bColor-1 { background-color: greenyellow; }
+
+        .mgB10 { margin-bottom: 10px; }
+
+        /* header 开始 */
+        header {
+            height: 103px;
+        }
+
+        header .logo {
+            width: 277px;
+            height: inherit;
+            background-color: red;
+        }
+
+        header .message {
+            height: 49px;
+            width: 137px;
+            margin-bottom: 8px;
+            
+        }
+
+        header nav {
+            height: 46px;
+            width: 679px;
+        }
+
+        /* main 开始 */
+        main {
+            height: 435px;
+        }
+
+        main menu {
+            width: 310px;
+            height: inherit;
+            background-color: yellow;
+        }
+
+        main .info {
+            width: 650px;
+        }
+
+        main .info .infoT {
+            height: 401px;
+        }
+
+        main .info .infoT .infoL {
+            width: 450px;
+        }
+
+        main .info .infoT .infoL div {
+            height: 240px;
+            background-color: lightskyblue;
+        }
+
+        main .info .infoT .infoL div.son2 {
+            height: 110px;
+        }
+
+        
+        main .info .infoT .infoL div.son3 {
+            height: 30px;
+        }
+
+        main .info .infoT .infoR {
+            width: 190px;
+            height: inherit;
+            background-color: purple;
+        }
+
+        main .info .infoB {
+            height: 25px;
+            background-color: green;
+        }
+
+        /* footer 开始 */
+        footer {
+            height: 35px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <header class="inner mgB10">
+        <div class="logo fl">
+            LOGO
+        </div>
+        <div class="message fr bColor-1">
+            message
+        </div>
+        <nav class="fr bColor-1">
+            nav
+        </nav>
+    </header>
+    <main class="inner mgB10">
+        <menu class="fl">
+            menu
+        </menu>
+        <div class="info fr">
+            <div class="infoT mgB10">
+                <div class="infoL fl">
+                    <div class="son1 mgB10">1</div>
+                    <div class="son2 mgB10">2</div>
+                    <div class="son3">3</div>
+                </div>
+                <div class="infoR fr">
+                    infoR
+                </div>
+            </div>
+            <div class="infoB">
+                infoB
+            </div>
+        </div>
+    </main>
+    <footer class="inner">
+        footer
+    </footer>
+</body>
+</html>

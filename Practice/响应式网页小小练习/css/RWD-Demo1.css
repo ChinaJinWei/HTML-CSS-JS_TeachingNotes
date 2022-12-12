@@ -1,0 +1,90 @@
+    body {
+        height: 100vh;
+        background-image: linear-gradient(135deg, #29524A, #E9BCB7);
+    }
+
+    .RWD-Container {
+        /* 版心宽度 */
+        width: 1100px;
+        /* 内边距 */
+        padding: 50px;
+        /* 使用定位实现水平垂直剧中 */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* 背景色 */
+        background-color: rgba(255, 255, 255, .1);
+        /* 边框圆角 */
+        border-radius: 10px;
+    }
+
+    .RWD-Container header {
+        height: 80px;
+        line-height: 80px;
+        overflow: hidden;
+    }
+
+    .RWD-Container header h1 {
+        /* 左浮动 */
+        float: left;
+        /* 字体颜色 */
+        color: white;
+        /* 字体大小 */
+        font-size: 36px;
+    }
+
+    .RWD-Container nav {
+        float: right;
+        overflow: hidden;
+    }
+
+    .RWD-Container nav ul li {
+        /* 左浮动 */
+        float: left;
+        /* 字体颜色 */
+        color: #fff;
+        /* 右外边距 */
+        margin-right: 20px;
+    }
+
+    .RWD-Container header nav ul li.Hide {
+        color: gold;
+    }
+
+    .RWD-Container main {
+        width: 100%;
+        /* 溢出隐藏 */
+        overflow: hidden;
+    }
+
+    .RWD-Container main ul {
+        /* 让子级足够放下 */
+        width: 1150px;
+        /* 溢出隐藏 */
+        overflow: hidden;
+    }
+
+    .RWD-Container main ul li {
+        /* 一行5个 */
+        /* width: 20%; */
+        width: 211px;
+        /* 设置高度 */
+        height: 200px;
+        float: left;
+        /* 使用边框实现元素之间的间距 */
+        /* border-right: 10px solid #fff;
+        border-bottom: 10px solid #fff; */
+        /* 设置内减盒 */
+        /* box-sizing: border-box; */
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .RWD-Container main ul li:nth-child(odd) {
+        background-color: lightblue;
+    }
+
+    .RWD-Container main ul li:nth-child(even) {
+        background-color: lightpink;
+    }
