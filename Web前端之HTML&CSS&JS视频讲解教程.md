@@ -818,6 +818,7 @@ dt 和 dd 容器级标签，里面的内容没有限制
 ​    语法：
 
 ```html
+<style>
     th,td {
         width: 100px;
     }
