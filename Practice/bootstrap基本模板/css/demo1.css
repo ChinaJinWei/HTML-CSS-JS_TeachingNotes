@@ -1,0 +1,15 @@
+    .box {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .box p {
+        float: left;
+        width: 50%;
+        height: 200px;
+        background-color: green;
+    }
+
+    .box .no2 {
+        background-color: orange;
+    }

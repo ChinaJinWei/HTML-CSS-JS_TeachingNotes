@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>简单布局</title>
+	<style>
+        body {
+            margin: 0;
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+            font-family: 微软雅黑;
+            text-align: center;
+        }
+        
+        /* header 开始 */
+
+        header {
+            width: 1200px;
+            height: 80px;
+            line-height: 80px;
+            background-color: #aaa;
+            margin: 0 auto;
+        }
+
+        header .header-l {
+            width: 20%;
+            height: inherit;
+            background-color: blue;
+            float: left;
+        }
+
+        header .header-r {
+            width: 60%;
+            height: inherit;
+            background-color: green;
+            float: right;
+        }
+
+        header::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* header 结束 */
+
+        /* main 开始 */
+
+        main {
+            width:1200px;
+            height: 800px;
+            line-height: 800px;
+            background-color: #eee;
+            margin: 0 auto;
+        }
+
+        main .main-tab {
+            width: 30%;
+            height: inherit;
+            background-color: antiquewhite;
+            float: left;
+        }
+
+        main .main-info {
+            width: 70%;
+            height: inherit;
+            background-color: goldenrod;
+            float: right;
+        }
+
+        main::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* main 结束 */
+
+        /* footer 开始 */
+
+        footer {
+            width: 1200px;
+            height: 80px;
+            line-height: 80px;
+            background-color: rebeccapurple;
+            margin: 0 auto;
+        }
+
+        /* footer 结束 */
+	</style>
+</head>
+<body>
+	<header>
+		<div class="header-l">
+			Top-L
+		</div>
+		<div class="header-r">
+			Top-R
+		</div>
+	</header>
+	<main>
+		<div class="main-tab">
+			main-tab
+		</div>
+		<div class="main-info">
+			main-info
+		</div>
+	</main>
+	<footer>
+		footer
+	</footer>
+	
+	<script>
+	
+	</script>
+
+</body>
+</html>

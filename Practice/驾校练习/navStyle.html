@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="CH">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navStyle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 100px;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        a:link,
+        a:visited {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .box {
+            width: 1000px;
+            padding: 30px;
+            margin: 100px auto;
+            background-image: linear-gradient(135deg, #EEAD92 10%, #6018DC 100%);
+            border-radius: 30px;
+            transition: all .8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+        }
+
+        .box:hover {
+            background-position-y: 83.5px;
+        }
+
+        .box ul {
+            /* 溢出隐藏：清除浮动 */
+            overflow: hidden;
+        }
+
+
+        .box ul li,
+        .box ul li a {
+            width: 107px;
+            height: 107px;
+        }
+
+
+        .box ul li,
+        .box ul li a {
+            border-radius: 50%;
+        }
+
+
+        .box ul li {
+            float: left;
+            text-align: center;
+            line-height: 130px;
+            position: relative;
+            margin: 0 46.5px;
+        }
+
+        .box ul li::before,
+        .box ul li::after {
+            content: "";
+            position: absolute;
+        }
+
+        .box ul li::before {
+            content: "";
+            width: 40px;
+            height: 30px;
+            /* 266 60 */
+            background: url("./img/huawei_logo.png") no-repeat 0px center/133px 30px content-box;
+            /* 设置定位块生效 */
+            top: 15px;
+            left: 50%;
+            margin-left: -20px;
+            z-index: 4;
+        }
+
+        .box ul li::after {
+            width: 107px;
+            height: 107px;
+            top: 0;
+            left: 0;
+            background: url("./img/a_1.png") no-repeat center/cover content-box;
+            transition: all .8s ease-in-out 0s;
+        }
+
+        .box ul li a {
+            color: #fff;
+            display: block;
+            position: relative;
+            z-index: 10;
+        }
+
+        .box ul li:hover::after {
+            /* 旋转 */
+            transform: rotate(360deg);
+            /* 图片变换 */
+            background-image: url("./img/a_1_h1.png");
+        }
+
+        .box ul li:nth-child(2)::after {
+            background-image: url("./img/a_2.png");
+        }
+
+        .box ul li:nth-child(3)::after {
+            background-image: url("./img/a_3.png");
+        }
+
+        .box ul li:nth-child(4)::after {
+            background-image: url("./img/a_4.png");
+        }
+
+        .box ul li:nth-child(5)::after {
+            background-image: url("./img/a_5.png");
+        }
+
+        .box ul li:nth-child(2):hover::after {
+            transform: rotate(360deg);
+            background-image: url("./img/a_2_h1.png");
+        }
+
+        .box ul li:nth-child(3):hover::after {
+            transform: rotate(360deg);
+            background-image: url("./img/a_3_h1.png");
+        }
+
+        .box ul li:nth-child(4):hover::after {
+            transform: rotate(360deg);
+            background-image: url("./img/a_4_h1.png");
+        }
+
+        .box ul li:nth-child(5):hover::after {
+            transform: rotate(360deg);
+            background-image: url("./img/a_5_h1.png");
+        }
+
+        /* 107 * 107 */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li><a href="https://www.huawei.com/cn/corporate-information" target="blank">华为官网</a></li>
+            <li><a href="https://www.huawei.com/cn/corporate-information" target="blank">华为官网</a></li>
+            <li><a href="https://www.huawei.com/cn/corporate-information" target="blank">华为官网</a></li>
+            <li><a href="https://www.huawei.com/cn/corporate-information" target="blank">华为官网</a></li>
+            <li><a href="https://www.huawei.com/cn/corporate-information" target="blank">华为官网</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

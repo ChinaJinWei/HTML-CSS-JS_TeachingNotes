@@ -1,0 +1,15 @@
+    .box {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .box p {
+        /* float: left; */
+        width: 100%;
+        height: 200px;
+        background-color: red;
+    }
+
+    .box p:last-child {
+        background-color: blue;
+    }
